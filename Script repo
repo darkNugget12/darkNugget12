@@ -1,0 +1,80 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Nugget Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+MainTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+StuffSection = MainTab:AddSection({
+	Name = "Stuff"
+})
+MainTab:AddButton({
+	Name = "Fling Ball",
+	Callback = function()
+	while task.wait(1) do
+   for i,v in ipairs(workspace.Objects.Balls:GetChildren()) do
+       game:GetService("ReplicatedStorage").Remotes.Ball.Kick:FireServer(v, game.Workspace.CurrentCamera.CFrame, -5000000002222222, "Straight")
+   end
+end
+      		print("makes people not touch ball for u to steal it")
+  	end    
+})
+
+
+ScriptsTab = Window:MakeTab({
+	Name = "Scripts",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+ScriptSection = ScriptsTab:AddSection({
+	Name = "Script Launcher"
+})
+ScriptsTab:AddButton({
+	Name = "Keyboard",
+	Callback = function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+      		print("button pressed")
+  	end    
+})
+ScriptsTab:AddButton({
+	Name = "Solo Hub",
+	Callback = function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Skrapisismyscript/Solo_Hub/main/Neo_Soccer"))()
+	      		print("button pressed")
+  	end    
+})
+ScriptsTab:AddButton({
+	Name = "LegendHandles",
+	Callback = function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/Neo1/main/Soccer"))()
+      		print("button pressed")
+  	end    
+})
+ScriptsTab:AddButton({
+	Name = "Cursor",
+	Callback = function()
+	loadstring(game:HttpGet(('https://pastefy.ga/V75mqzaz/raw'),true))()
+      		print("button pressed")
+  	end    
+})
+  
+MainTab:AddSlider({
+	Name = "Walkspeed",
+	Min = 22,
+	Max = 100,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "WS",
+	Callback = function(Value)
+	game.Workspace.Players.LocalPlayer.Character.Humanoid.Walkspeed = Value
+	end    
+})
+
+
+
+OrionLib:Init()
